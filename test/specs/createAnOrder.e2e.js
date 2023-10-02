@@ -53,7 +53,7 @@ describe('Create an order', () => {
       
       const linkCardButton = await $(page.linkCardButton);
       await linkCardButton.waitForDisplayed();
-    await linkCardButton.click();
+      await linkCardButton.click();
 
     const closePaymentMethodButton = await $(page.closePaymentMethodButton);
     await closePaymentMethodButton.waitForDisplayed();
@@ -66,11 +66,13 @@ describe('Create an order', () => {
     const messageDriverField = await $(page.messageDriverField);
     await messageDriverField.waitForDisplayed();
     await messageDriverField.setValue("thank you");
+    
 
     const blanketAndHankerchiefs = await $(page.blanketAndHankerchiefs);
     await blanketAndHankerchiefs.scrollIntoView();
     await blanketAndHankerchiefs.waitForDisplayed();
     await expect(blanketAndHankerchiefs).toBeEnabled();
+    
 
     const iceCreamPlusButton = await $(page.iceCreamPlusButton);
     await iceCreamPlusButton.scrollIntoView();
@@ -81,16 +83,6 @@ describe('Create an order', () => {
 
     const orderConfirmationModal = await $(page.orderConfirmationModal);
     await expect(orderConfirmationModal).toBeExisting();
-
-
-
-
-
-
-
-
-
-
 
 
 await browser.pause(3000);
