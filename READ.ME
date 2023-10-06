@@ -1,0 +1,78 @@
+# hm08-qa-us 
+2
+Home work project 8 
+3
+ 
+4
+ 
+5
+In this project we script tests for UrbanRoutes app writing code in Visual Studio Code. 
+6
+ 
+7
+Connect computer to you github 
+8
+ 
+9
+The first step is to link your GitHub account to Practicum. To do so, click the "Link GitHub account" button in the widget at the top of this page. This will take you to a new browser tab where you'll be asked to confirm that you want to link your GitHub account. If you're not signed in to GitHub already, you'll be asked to enter your username and password. Upon confirming, your Practicum profile will be connected to your GitHub profile via GitHub's secure API. This will allow you to submit your projects automatically at the click of a button, directly within the Practicum platform. 
+10
+ 
+11
+Clone the repo to your computer 
+12
+ 
+13
+a repository will be created automatically. The repository name will be hm08-qa-us. Go to GitHub and clone the new repo to your local computer, using the following steps: Open your preferred terminal emulator. If you’re on Windows, use Git Bash. If you haven’t done so already, create a directory to store all of your projects. For example: Copy code BASH cd ~ # make sure you're in your home directory mkdir projects # create a folder called projects cd projects # change directory into the new projects folder 
+14
+ 
+15
+Clone the repo. The command you use will depend on the authentication strategy that you’re using. Copy code BASH 
+16
+ 
+17
+if you are using HTTPS 
+18
+ 
+19
+git clone https://github.com/username/hm08-qa-us.git 
+20
+ 
+21
+if you are using SSH 
+22
+ 
+23
+git clone git@github.com:username/hm08-qa-us.git 
+24
+ 
+25
+Work with the project locally 
+26
+ 
+27
+Now you have a local copy of the project and can open the project folder on your computer. Before starting your work with the project, run npm install from the console in your project folder. 
+28
+ 
+29
+Write your tests in the createAnOrder.e2e.js file located in the test/specs folder. 
+30
+to run tests input npm run wdio into terminal.
+Write automated tests covering the full process of ordering a taxi. The tests should cover: 
+31
+1.Setting the address 
+32
+2.Selecting Supportive plan 
+33
+3.Filling in the phone number 
+34
+4.Adding a credit card (Tip: the “link” button doesn’t become active until the card CVV field on the “Adding a card” modal id=”code” class=”card-input” loses focus. To change focus you can simulate the user pressing TAB or clicking somewhere else on the screen). 
+35
+5.Writing a message for the driver 
+36
+6.Ordering a Blanket and handkerchiefs (Tip: there are two selectors to be aware of here. One selector to click on and one to run expect on to verify that the state changed). 
+37
+7.Ordering 2 Ice creams 
+38
+8.The car search modal appears 
+39
+ 
