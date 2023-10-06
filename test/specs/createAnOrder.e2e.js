@@ -66,6 +66,8 @@ describe('Create an order', () => {
     const messageDriverField = await $(page.messageDriverField);
     await messageDriverField.waitForDisplayed();
     await messageDriverField.setValue("thank you");
+    const message = await messageDriverField.getValue();
+    await expect(message).toBe("thank you");
     
 
     const blanketAndHankerchiefs = await $(page.blanketAndHankerchiefs);
