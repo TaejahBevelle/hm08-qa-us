@@ -16,80 +16,100 @@ describe('Create an order', () => {
        //Call the taxi to the address
         await browser.url(`/`)
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        
+    })
+      
+    it('should select supportive plan', async () => {
       //Select Supportive plan
       const supportiveClassButton = await $(page.supportiveClassButton);
       await supportiveClassButton.waitForDisplayed();
       await supportiveClassButton.click();
+    })
 
-
+    it('should input phone number', async () => {
       //Input Phone number
         const phoneNumber = helper.getPhoneNumber("+1");
         await page.submitPhoneNumber(phoneNumber);
         await expect(await helper.getElementByText(phoneNumber)).toBeExisting();
+    })
 
-
+    it('should click payment method button', async () => {
       //Adding a payment card
       const paymentMethodButton = await $(page.paymentMethodButton);
       await paymentMethodButton.waitForDisplayed();
       await paymentMethodButton.click();
+    })
 
+    it('should click add card button', async () => {
       const addCardButton = await $(page.addCardButton);
       await addCardButton.waitForDisplayed();
       await addCardButton.click();
+    })
 
+    it('should input card number', async () => {
       const cardNumber = await $(page.cardNumber);
       await cardNumber.waitForDisplayed();
       await cardNumber.setValue(1234567891234567);
+    })
       
+    it('should input card code', async () => {
       const cardCode = await $(page.cardCode);
       await cardCode.waitForDisplayed();
       await cardCode.setValue(14);
+    })
 
+    it('should click card signature strip', async () => {
       const cardSignatureStrip = await $(page.cardSignatureStrip);
       await cardSignatureStrip.waitForDisplayed();
       await cardSignatureStrip.click();
+    })
 
-      
+    it('should link card button', async () => {
       const linkCardButton = await $(page.linkCardButton);
       await linkCardButton.waitForDisplayed();
       await linkCardButton.click();
+    })
 
+    it('should close payment method', async () => {
     const closePaymentMethodButton = await $(page.closePaymentMethodButton);
     await closePaymentMethodButton.waitForDisplayed();
     await closePaymentMethodButton.click();
+    })
 
+it('should display card payment method icon', async () => {
     const cardPaymentMethodIcon = await $(page.cardPaymentMethodIcon);
     await cardPaymentMethodIcon.waitForDisplayed();
     await expect (await $(cardPaymentMethodIcon)).toBeExisting();
+})
 
+it('message driver', async () => {
     const messageDriverField = await $(page.messageDriverField);
     await messageDriverField.waitForDisplayed();
     await messageDriverField.setValue("thank you");
     const message = await messageDriverField.getValue();
     await expect(message).toBe("thank you");
+})
     
-
+it('should order blankets and hankerchiefs', async () => {
     const blanketAndHankerchiefs = await $(page.blanketAndHankerchiefs);
     await blanketAndHankerchiefs.scrollIntoView();
     await blanketAndHankerchiefs.waitForDisplayed();
     await expect(blanketAndHankerchiefs).toBeEnabled();
+})
     
-
+it('order 2 icecreams', async () => {
     const iceCreamPlusButton = await $(page.iceCreamPlusButton);
     await iceCreamPlusButton.scrollIntoView();
     await iceCreamPlusButton.waitForDisplayed();
     await iceCreamPlusButton.click();
     await iceCreamPlusButton.click();
     await expect(await helper.getElementByText("2")).toBeExisting;
+})
 
+it('car search modal appear ', async () => {
     const orderConfirmationModal = await $(page.orderConfirmationModal);
     await expect(orderConfirmationModal).toBeExisting();
-
-
-await browser.pause(3000);
-
-
-    })
 })
+
+
+  })
 
