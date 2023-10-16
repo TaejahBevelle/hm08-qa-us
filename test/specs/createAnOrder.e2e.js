@@ -29,7 +29,6 @@ describe('Create an order', () => {
     it('should input phone number', async () => {
       await browser.url(`/`)
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        await page.supportiveClassButton();
         const phoneNumber = helper.getPhoneNumber("+1");
         await page.submitPhoneNumber(phoneNumber);
         await expect(await helper.getElementByText(phoneNumber)).toBeExisting();
@@ -65,6 +64,8 @@ describe('Create an order', () => {
 })
 
 it('message driver', async () => {
+  await browser.url(`/`)
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
     const messageDriverField = await $(page.messageDriverField);
     await messageDriverField.waitForDisplayed();
     await messageDriverField.setValue("thank you");
@@ -80,6 +81,8 @@ it('should order blankets and hankerchiefs', async () => {
 })
     
 it('order 2 icecreams', async () => {
+  await browser.url(`/`)
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
     const iceCreamPlusButton = await $(page.iceCreamPlusButton);
     await iceCreamPlusButton.scrollIntoView();
     await iceCreamPlusButton.waitForDisplayed();
